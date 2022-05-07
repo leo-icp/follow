@@ -161,6 +161,7 @@ export default function App() {
       <Row>
           <Button type="primary" style={{width: "100%"}} onClick={autoFollowALl}>
             {!autoFollow?`Auto Follow(测试功能，不保证稳定性)`: `轮循中，点击关闭功能`}</Button>
+          <p style={{color: 'red'}}>请先手动点一次Follow签名后，再点Auto Follow</p>
       </Row>
       </div>
       <InfiniteScroll
