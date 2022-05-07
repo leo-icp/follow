@@ -40,16 +40,24 @@ export default function App() {
   const [add, setAdd] = useState<boolean>(false);
   const [account, setAccount] = useState<string>("");
   const [addressList, setAddressList] = useState<any[]>([]);
-  const onFinish = () => {
+  const web3 = new Web3(window.ethereum);
+  const onFinish = async () => {
     let addressArr = [...addressList];
-    var address = addresss.replace(/[^A-Za-z0-9,]*/g,"");
-    for (let i = 0; i <addresss.length; i+=43) {
-      var address = addresss.slice(i,i+43);
-      if (Web3.utils.isAddress(address)){
-        addressArr.push(address)
-        set(ref(db, "address_list/" + address), address);
-      };
+    let newAddressArr = []
+    var _addresss = addresss.replace(/[^A-Za-z0-9]*/g,"");
+    _addresss = _addresss.replaceAll("(\n|\r|(\r\n)|(\u0085)|(\u2028)|(\u2029))", "");
+    console.log(_addresss, '---address');
+    
+    for (let i = 0; i <_addresss.length; i+=42) {
+      var address = _addresss.slice(i,i+42);
+      if (web3.utils.isAddress(address)) {
+        newAddressArr.push(address)
+      }
     };
+    for (let address of addressArr) {
+      addressArr.push(address)
+      await set(ref(db, "address_list/" + address), address);
+    }
     setAddressList(addressArr);
   };
 
@@ -58,7 +66,8 @@ export default function App() {
       const data = snapshot.val();
       const formatedData = Object.keys(data).filter(item=>{
         item = item.replace(/[^A-Za-z0-9,]*/g,"");
-        return Web3.utils.isAddress(item)
+        item = item.replaceAll("(\n|\r|(\r\n)|(\u0085)|(\u2028)|(\u2029))", "");
+        return web3.utils.isAddress(item)
       });
       const map = {};
       formatedData.forEach(item=>{
