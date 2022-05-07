@@ -54,7 +54,7 @@ export default function App() {
         newAddressArr.push(address)
       }
     };
-    for (let address of addressArr) {
+    for (let address of newAddressArr) {
       addressArr.push(address)
       await set(ref(db, "address_list/" + address), address);
     }
