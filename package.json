@@ -9,9 +9,12 @@
     "antd": "4.20.2",
     "firebase": "^9.7.0",
     "gh-pages": "^3.2.3",
+    "rc-virtual-list": "^3.4.7",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "react-scripts": "4.0.3"
+    "react-infinite-scroll-component": "^6.1.0",
+    "react-scripts": "4.0.3",
+    "web3": "^1.7.3"
   },
   "devDependencies": {
     "@types/react": "17.0.20",
