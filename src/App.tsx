@@ -99,6 +99,8 @@ export default function App() {
   }
   return (
     <div className="container">
+      <p>基于waha3大佬的开源代码修改的 <a href="https://github.com/waha3/follow" target="_blank">waha3 github</a> | <a href="https://waha3.github.io/follow/" target="_blank">作者原项目github page</a></p>
+      <p>如果waha3大佬作者不允许我修改使用，请联系我 我会下掉页面 <a href="mailto:noshufu@gmail.com">请给我发邮件</a></p>
       <div>
         <div style={{width: 800}}>
           {account ? (
