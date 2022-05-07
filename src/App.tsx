@@ -56,9 +56,13 @@ export default function App() {
   useEffect(() => {
     onValue(ref(db, "address_list/"), (snapshot) => {
       const data = snapshot.val();
-      const formatedData = Object.keys(data).filter(item=>Web3.utils.isAddress(item));
+      const formatedData = Object.keys(data).filter(item=>{
+        item = item.replace(/[^A-Za-z0-9,]*/g,"");
+        return Web3.utils.isAddress(item)
+      });
       const map = {};
       formatedData.forEach(item=>{
+        item = item.replace(/[^A-Za-z0-9,]*/g,"");
         map[item] = item;
       });
       setAddressList(Object.keys(map));
