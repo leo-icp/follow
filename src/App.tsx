@@ -115,7 +115,7 @@ export default function App() {
               <ConnectButton setAccount={setAccount}></ConnectButton>
             </>
           )}
-        <div style={{marginTop: 20}}>
+        <div>
           {
             add? (<TextArea onChange={e=>setAddresss(e.target.value)} value={addresss} placeholder="wallet address" />):(
               <Button
@@ -130,7 +130,7 @@ export default function App() {
           }
         </div>
       </div>
-      <Row justify="space-between" style={{marginTop: 20}}>
+      <Row justify="space-between">
         <Col span={5}>
           <Button type="primary" onClick={onFinish}>
             Submit
@@ -147,7 +147,7 @@ export default function App() {
           </Row>
         </Col>
       </Row>
-      <Row style={{marginTop: 20}}>
+      <Row>
           <Button type="primary" style={{width: "100%"}} onClick={autoFollowALl}>
             {!autoFollow?`Auto Follow(测试功能，不保证稳定性)`: `轮循中，点击关闭功能`}</Button>
       </Row>
