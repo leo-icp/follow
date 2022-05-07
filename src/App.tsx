@@ -76,8 +76,8 @@ export default function App() {
         await handleFollowAll();
         setTimeout(async ()=>{
           await autoFollowALl();
-        }, 60000)
-      }, 60000)
+        }, 40000)
+      }, 40000)
     }
   }
   const handleFollowAll = async ()=>{
