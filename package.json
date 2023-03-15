@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "main": "src/index.tsx",
   "dependencies": {
     "@cyberconnect/react-follow-button": "2.1.3",
     "antd": "4.20.2",
@@ -33,5 +32,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "https://waha3.github.io/follow"
+  "homepage": "./"
 }
